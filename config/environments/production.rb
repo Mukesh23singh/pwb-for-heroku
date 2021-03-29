@@ -71,17 +71,15 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.smtp_settings = {
-    :address => "smtp.sendgrid.net",
-    :port => 25,
-    :domain => "propertywebbuilder.com",
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'real-estate-99-kasare.heroku.com',
     :authentication => :plain,
-    :user_name => Rails.application.secrets.sendgrid_username,
-    :password => Rails.application.secrets.sendgrid_password
-    # If deploying to heroku, set below in secrets.yml so above works
-    # sendgrid_username: <%= ENV['SENDGRID_USERNAME'] %>
-    # sendgrid_password: <%= ENV['SENDGRID_PASSWORD'] %>
   }
+  ActionMailer::Base.delivery_method = :smtp
 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
