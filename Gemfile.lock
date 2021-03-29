@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/Mukesh23singh/property_web_builder
-  revision: 41b25b718fc3fb413f06d414e738944829950ade
+  revision: dab3f15b8b68f947c49501c6dd764bf960f79a2a
   specs:
-    pwb (1.4.4)
+    pwb (1.4.5)
       active_hash
       activemodel-serializers-xml
       bootstrap-sass
